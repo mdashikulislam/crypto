@@ -66,8 +66,8 @@ $email =  Session::get('email') ? :'';
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand page-scroll animation" href="#home_section" data-animation="fadeInDown" data-animation-delay="1s">
-                <img class="logo_light" src="assets/images/logoblanc.png" alt="logo" />
-                <img class="logo_dark" src="assets/images/logonoir.png" alt="logo" />
+                <img class="logo_light" src="{{asset('assets/images/logoblanc.png')}}" alt="logo" />
+                <img class="logo_dark" src="{{asset('assets/images/logonoir.png')}}" alt="logo" />
             </a>
             <button class="navbar-toggler animation" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-animation="fadeInDown" data-animation-delay="1.1s">
                 <span class="ion-android-menu"></span>
@@ -88,7 +88,7 @@ $email =  Session::get('email') ? :'';
                 <ul class="navbar-nav nav_btn align-items-center">
 
 
-                    <li class="animation" data-animation="fadeInDown" data-animation-delay="2.1s"><a class="btn btn-white btn-radius nav_item" href="login.html">CONNEXION</a></li>
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="2.1s"><a class="btn btn-white btn-radius nav_item" href="{{route('login')}}">CONNEXION</a></li>
                 </ul>
             </div>
         </nav>
@@ -306,22 +306,22 @@ $email =  Session::get('email') ? :'';
         <div class="row align-items-center text-center overflow_hide small_space">
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.3s">
-                    <a href="/binance"><img src="assets/images/binanceok.png" alt="client_logo_dark_gray1" /></a>
+                    <a href="/binance"><img src="{{asset('assets/images/binanceok.png')}}" alt="client_logo_dark_gray1" /></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.4s">
-                    <a href="/stormgain"><img src="assets/images/stormgainok.png" alt="client_logo_dark_gray2" />
+                    <a href="/stormgain"><img src="{{asset('assets/images/stormgainok.png')}}" alt="client_logo_dark_gray2" />
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.5s">
-                    <a href="/apollox"><img src="assets/images/apolloxok.png" alt="client_logo_dark_gray3" />
+                    <a href="/apollox"><img src="{{asset('assets/images/apolloxok.png')}}" alt="client_logo_dark_gray3" />
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.6s">
-                    <a href="/prime"><img src="assets/images/primeok.png" alt="client_logo_dark_gray4" />
+                    <a href="/prime"><img src="{{asset('assets/images/primeok.png')}}" alt="client_logo_dark_gray4" />
                 </div>
             </div>
 
@@ -338,7 +338,7 @@ $email =  Session::get('email') ? :'';
                 <div class="col-lg-4 col-md-6">
                     <div class="footer_logo mb-3 animation" data-animation="fadeInUp" data-animation-delay="0.2s">
                         <a href="#home_section" class="page-scroll">
-                            <img alt="logo" width="70%" src="assets/images/logoblanc.png">
+                            <img alt="logo" width="70%" src="{{asset('assets/images/logoblanc.png')}}">
                         </a>
                     </div>
                     <div class="footer_desc small_text">

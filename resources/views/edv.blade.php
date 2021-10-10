@@ -14,37 +14,7 @@ $continent=$details->geoplugin_continentCode;
 $country=$details->geoplugin_countryCode;
 ?>
 <head>
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Cryptotraders est une communauté en ligne et un ensemble de services associés à la discipline grandissante du cryptotrading. Alertes, analyses, formation téléphonique, live.." />
-    <meta property="og:image" content="logosansecrit.PNG">
-    <!-- SITE TITLE -->
-    <title>Cryptotraders.fr</title>
-    <!-- Favicon Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="favicon-32x32.png">
-    <!-- Animation CSS -->
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <!-- Latest Bootstrap min CSS -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css" >
-    <!-- ionicons CSS -->
-    <link rel="stylesheet" href="assets/css/ionicons.min.css">
-    <!--- owl carousel CSS-->
-    <link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.default.min.css">
-    <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/spop.min.css">
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <!-- Color CSS -->
-    <link id="layoutstyle" rel="stylesheet" href="assets/color/theme.css">
+    @include('include.head')
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51272653-7"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -104,8 +74,8 @@ $country=$details->geoplugin_countryCode;
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand page-scroll animation" href="#home_section" data-animation="fadeInDown" data-animation-delay="1s">
-                <a href="/"><img class="logo_light" src="assets/images/logoblanc.png" alt="logo" /> </a>
-                <a href="/"><img class="logo_dark" src="assets/images/logonoir.png" alt="logo" /> </a>
+                <a href="/"><img class="logo_light" src="{{asset('assets/images/logoblanc.png')}}" alt="logo" /> </a>
+                <a href="/"><img class="logo_dark" src="{{asset('assets/images/logonoir.png')}}" alt="logo" /> </a>
             </a>
             <button class="navbar-toggler animation" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-animation="fadeInDown" data-animation-delay="1.1s">
                 <span class="ion-android-menu"></span>
@@ -126,7 +96,7 @@ $country=$details->geoplugin_countryCode;
                 <ul class="navbar-nav nav_btn align-items-center">
 
 
-                    <li class="animation" data-animation="fadeInDown" data-animation-delay="2.1s"><a class="btn btn-white btn-radius nav_item" href="login.html">CONNEXION</a></li>
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="2.1s"><a class="btn btn-white btn-radius nav_item" href="{{route('login')}}">CONNEXION</a></li>
                 </ul>
             </div>
         </nav>
@@ -369,22 +339,22 @@ $country=$details->geoplugin_countryCode;
         <div class="row align-items-center text-center overflow_hide small_space">
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.3s">
-                    <a href="/binance"><img src="assets/images/binanceok.png" alt="client_logo_dark_gray1" /></a>
+                    <a href="/binance"><img src="{{asset('assets/images/binanceok.png')}}" alt="client_logo_dark_gray1" /></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.4s">
-                    <a href="/stormgain"><img src="assets/images/stormgainok.png" alt="client_logo_dark_gray2" />
+                    <a href="/stormgain"><img src="{{asset('assets/images/stormgainok.png')}}" alt="client_logo_dark_gray2" />
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.5s">
-                    <a href="/apollox"><img src="assets/images/apolloxok.png" alt="client_logo_dark_gray3" />
+                    <a href="/apollox"><img src="{{asset('assets/images/apolloxok.png')}}" alt="client_logo_dark_gray3" />
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.6s">
-                    <a href="/prime"><img src="assets/images/primeok.png" alt="client_logo_dark_gray4" />
+                    <a href="/prime"><img src="{{asset('assets/images/primeok.png')}}" alt="client_logo_dark_gray4" />
                 </div>
             </div>
 
@@ -394,14 +364,14 @@ $country=$details->geoplugin_countryCode;
 <!-- END CLIENTS SECTION -->
 
 <!-- START FOOTER SECTION -->
-<footer class="section_gradiant3" data-z-index="1" data-parallax="scroll" data-image-src="assets/images/roadmap_bg4.png">
+<footer class="section_gradiant3" data-z-index="1" data-parallax="scroll" data-image-src="{{asset('assets/images/roadmap_bg4.png')}}">
     <div class="top_footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer_logo mb-3 animation" data-animation="fadeInUp" data-animation-delay="0.2s">
                         <a href="#home_section" class="page-scroll">
-                            <img alt="logo" width="70%" src="assets/images/logoblanc.png">
+                            <img alt="logo" width="70%" src="{{asset('assets/images/logoblanc.png')}}">
                         </a>
                     </div>
                     <div class="footer_desc small_text">
@@ -452,34 +422,7 @@ $country=$details->geoplugin_countryCode;
 <!-- END FOOTER SECTION -->
 
 <a href="#" class="scrollup btn-default"><i class="ion-ios-arrow-up"></i></a>
-
-<!-- Latest jQuery -->
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<!-- Latest compiled and minified Bootstrap -->
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<!-- owl-carousel min js  -->
-<script src="assets/owlcarousel/js/owl.carousel.min.js"></script>
-<!-- magnific-popup min js  -->
-<script src="assets/js/magnific-popup.min.js"></script>
-<!-- waypoints min js  -->
-<script src="assets/js/waypoints.min.js"></script>
-<!-- parallax js  -->
-<script src="assets/js/parallax.js"></script>
-<!-- countdown js  -->
-<script src="assets/js/jquery.countdown.min.js"></script>
-<!-- particles min js  -->
-<script src="assets/js/particles.min.js"></script>
-<!-- scripts js -->
-<script src="assets/js/jquery.dd.min.js"></script>
-<!-- jquery.counterup.min js -->
-<script src="assets/js/jquery.counterup.min.js"></script>
-
-<!-- jquery.wavify js -->
-<script src="assets/js/spop.min.js"></script>
-<script src="assets/js/notification.js"></script>
-<!-- scripts js -->
-<script src="assets/js/scripts.js"></script>
+@include('include.foot')
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{};

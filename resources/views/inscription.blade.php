@@ -88,7 +88,7 @@ $place = 32-date("j");
                 </ul>
                 <ul class="navbar-nav nav_btn align-items-center">
 
-                    <li class="animation" data-animation="fadeInDown" data-animation-delay="2.1s"><a class="btn btn-white btn-radius nav_item" href="login.html">CONNEXION</a></li>
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="2.1s"><a class="btn btn-white btn-radius nav_item" href="{{route('login')}}">CONNEXION</a></li>
                 </ul>
             </div>
         </nav>
@@ -162,7 +162,7 @@ $place = 32-date("j");
 
                         </div>
                         <div class="field_form authorize_form">
-                            <form action="signc.php" id="inscription" method="get" onsubmit="return checkForm(this);">
+                            <form action="{{route('signup')}}" id="inscription" method="get" onsubmit="return checkForm(this);">
                                 <input type="hidden" id="ref" name="ref" />
                                 <div class="form-group col-md-12 animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
                                     <input type="text" class="form-control" required="" placeholder="Prénom" name="prenom" >
