@@ -7,7 +7,7 @@
 <!-- SITE TITLE -->
 <title>Cryptotraders.fr</title>
 <!-- Favicon Icon -->
-<link rel="shortcut icon" type="image/x-icon" href="favicon-32x32.png">
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/favicon-32x32.png')}}">
 <!-- Animation CSS -->
 <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
 <!-- Latest Bootstrap min CSS -->

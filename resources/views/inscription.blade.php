@@ -192,7 +192,7 @@ $place = 32-date("j");
                     </div>
                     <div class="divider small_divider"></div>
                     <div class="text-center">
-                        <span class="animation animated fadeInUp" data-animation="fadeInUp" style="color:white" data-animation-delay="1s" style="animation-delay: 1s; opacity: 1;">Déjà un compte ? <a href="/login"> Se connecter</a></span>
+                        <span class="animation animated fadeInUp" data-animation="fadeInUp" style="color:white" data-animation-delay="1s" style="animation-delay: 1s; opacity: 1;">Déjà un compte ? <a href="{{route('login')}}"> Se connecter</a></span>
                     </div>
                 </div>
             </div>
@@ -681,7 +681,7 @@ $place = 32-date("j");
             </div>
 
         </div><br>
-        <center><a href="/inscription" class="btn btn-default btn-radius animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="1.40s" style="animation-delay: 1.4s; opacity: 1;">OBTENIR LES SIGNAUX <i class="fa fa-bell-o"></i></a></center>
+        <center><a href="{{route('inscription')}}" class="btn btn-default btn-radius animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="1.40s" style="animation-delay: 1.4s; opacity: 1;">OBTENIR LES SIGNAUX <i class="fa fa-bell-o"></i></a></center>
         <br><center><a target="_blank" href="https://docs.google.com/spreadsheets/d/1NjmCWfNiEZwGaY-0oU4QtNNxWTfi8yvCuK4-QyKiV-c/edit?usp=sharing" class="btn btn-border btn-radius">Historique des signaux <i class="ion-ios-arrow-thin-right"></i></a></center><br><br><center><p style="color:white">Les performances passées ne garantissent pas les performances futures</p></center></div>
 </section>
 <!-- END SECTION resultats SALE -->
@@ -817,22 +817,22 @@ $place = 32-date("j");
         <div class="row align-items-center text-center overflow_hide small_space">
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.3s">
-                    <a href="/binance"><img src="{{asset('assets/images/binanceok.png')}}" alt="client_logo_dark_gray1" /></a>
+                    <a href="https://accounts.binance.com/fr/register?ref=OSOZANLO"><img src="{{asset('assets/images/binanceok.png')}}" alt="client_logo_dark_gray1" /></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.4s">
-                    <a href="/stormgain"><img src="{{asset('assets/images/stormgainok.png')}}" alt="client_logo_dark_gray2" />
+                    <a href="https://stormgain.global/lp/fr/bonus25-2/?aff_id=101180&cxd=101180_640281"><img src="{{asset('assets/images/stormgainok.png')}}" alt="client_logo_dark_gray2" />
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.5s">
-                    <a href="/apollox"><img width="80%" src="https://www.comparateurbanque.com/files/2021/08/libertex-logo-forex.png" alt="client_logo_dark_gray3" />
+                    <a href="https://www.apollox.com/en/futures/ref?code=10023896"><img src="{{asset('assets/images/apolloxok.png')}}" alt="client_logo_dark_gray3" />
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.6s">
-                    <a href="/prime"><img src="{{asset('assets/images/primeok.png')}}" alt="client_logo_dark_gray4" />
+                    <a href="https://primexbt.com/fr/covesting?click_id=6162a1e998cccc00015e76e4&pid=7840&offer_id=28"><img src="{{asset('assets/images/primeok.png')}}" alt="client_logo_dark_gray4" />
                 </div>
             </div>
 
@@ -870,8 +870,8 @@ $place = 32-date("j");
                 <div class="col-lg-2 col-md-3 col-sm-6 col-auto res_sm_mt_20">
                     <h4 class="footer_title_s2 animation" data-animation="fadeInUp" data-animation-delay="0.2s">Utile</h4>
                     <ul class="footer_link list_none">
-                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.2s"><a href="/inscription">NOUS REJOINDRE</a></li>
-                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.3s"><a href="/login">Se connecter</a></li>
+                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.2s"><a href="{{route('inscription')}}">NOUS REJOINDRE</a></li>
+                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.3s"><a href="{{route('login')}}">Se connecter</a></li>
                         <li class="animation" data-animation="fadeInUp" data-animation-delay="0.6s"><a href="#whitepaper">Le guide</a></li>
                         <li class="animation" data-animation="fadeInUp" data-animation-delay="0.7s"><a target="_blank" href="https://t.me/max_cryptotraders">Support</a></li>
 

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class,'index']);
+Route::get('/', [\App\Http\Controllers\HomeController::class,'index'])->name('landing');
 Route::get('inscription', [\App\Http\Controllers\HomeController::class,'inscription'])->name('inscription');
 Route::post('contest',[\App\Http\Controllers\HomeController::class,'contest']);
 Route::get('contest',[\App\Http\Controllers\HomeController::class,'getContest'])->name('contest');
@@ -26,3 +26,4 @@ Route::get('login',[\App\Http\Controllers\HomeController::class,'login'])->name(
 Route::get('login2',[\App\Http\Controllers\HomeController::class,'login2'])->name('login2');
 Route::get('deblok',[\App\Http\Controllers\HomeController::class,'deblok'])->name('deblok');
 Route::post('deblok',[\App\Http\Controllers\HomeController::class,'deblokSave']);
+Route::post('contact',[\App\Http\Controllers\HomeController::class,'contact'])->name('contact');

@@ -108,7 +108,7 @@ $email =  Session::get('email') ? :'';
                     <h1 class="animation text-white center" data-animation="fadeInUp" data-animation-delay="1.1s"><strong>Bienvenue </strong> <?php echo @$prenom;?> !</h1>
                     <p class="animation text-white" data-animation="fadeInUp" data-animation-delay="1.3s">Merci pour votre <strong>inscription</strong>. <br><br>Vous êtes beaucoup à vouloir nous rejoindre et bénéficier de nos services. <br><h3 style="color:white"><br>Vérifier vos SMS/Telegram</h3> <p style="color:white">Un tirage au sort automatique est effectué à chaque inscription</b>, si vous êtes séléctionné vous allez recevoir d'ici 5min un <b>SMS / Telegram</b> de la part de l'un de nos conseillers pour finaliser votre inscription.</p><h3 style="color:white"><br>Augmenter vos chances ?</h3>
                     <div class="btn_group animation center" data-animation="fadeInUp" data-animation-delay="1.1s">
-                        <a href="/rdv" class="btn btn-default btn-radius page-scroll"><i class="fa fa-phone"></i>Être rappelé  </a>
+                        <a href="{{route('rdv')}}" class="btn btn-default btn-radius page-scroll"><i class="fa fa-phone"></i>Être rappelé  </a>
                         <a href="javascript:void(Tawk_API.toggle())" class="btn btn-default btn-radius page-scroll"><i class="fa fa-rocket"></i>Chat en ligne</a>
                     </div>
 
@@ -283,7 +283,7 @@ $email =  Session::get('email') ? :'';
             </div>
 
         </div><br>
-        <center><a href="/inscription" class="btn btn-default btn-radius animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="1.40s" style="animation-delay: 1.4s; opacity: 1;">OBTENIR LES SIGNAUX <i class="fa fa-bell-o"></i></a></center>
+        <center><a href="{{route('inscription')}}" class="btn btn-default btn-radius animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="1.40s" style="animation-delay: 1.4s; opacity: 1;">OBTENIR LES SIGNAUX <i class="fa fa-bell-o"></i></a></center>
         <br><center><a target="_blank" href="https://docs.google.com/spreadsheets/d/1NjmCWfNiEZwGaY-0oU4QtNNxWTfi8yvCuK4-QyKiV-c/edit?usp=sharing" class="btn btn-border btn-radius">Historique des signaux <i class="ion-ios-arrow-thin-right"></i></a></center><br><br><center><p style="color:white">Les performances passées ne garantissent pas les performances futures</p></center></div>
 </section>
 <!-- END SECTION resultats SALE -->
@@ -306,22 +306,22 @@ $email =  Session::get('email') ? :'';
         <div class="row align-items-center text-center overflow_hide small_space">
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.3s">
-                    <a href="/binance"><img src="{{asset('assets/images/binanceok.png')}}" alt="client_logo_dark_gray1" /></a>
+                    <a href="https://accounts.binance.com/fr/register?ref=OSOZANLO"><img src="{{asset('assets/images/binanceok.png')}}" alt="client_logo_dark_gray1" /></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.4s">
-                    <a href="/stormgain"><img src="{{asset('assets/images/stormgainok.png')}}" alt="client_logo_dark_gray2" />
+                    <a href="https://stormgain.global/lp/fr/bonus25-2/?aff_id=101180&cxd=101180_640281"><img src="{{asset('assets/images/stormgainok.png')}}" alt="client_logo_dark_gray2" />
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.5s">
-                    <a href="/apollox"><img src="{{asset('assets/images/apolloxok.png')}}" alt="client_logo_dark_gray3" />
+                    <a href="https://www.apollox.com/en/futures/ref?code=10023896"><img src="{{asset('assets/images/apolloxok.png')}}" alt="client_logo_dark_gray3" />
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6 logo_border">
                 <div class="d-flex flex-wrap align-items-center justify-content-center h-100 animation" data-animation="fadeInUp" data-animation-delay="0.6s">
-                    <a href="/prime"><img src="{{asset('assets/images/primeok.png')}}" alt="client_logo_dark_gray4" />
+                    <a href="https://primexbt.com/fr/covesting?click_id=6162a1e998cccc00015e76e4&pid=7840&offer_id=28"><img src="{{asset('assets/images/primeok.png')}}" alt="client_logo_dark_gray4" />
                 </div>
             </div>
 
@@ -359,8 +359,8 @@ $email =  Session::get('email') ? :'';
                 <div class="col-lg-2 col-md-3 col-sm-6 col-auto res_sm_mt_20">
                     <h4 class="footer_title_s2 animation" data-animation="fadeInUp" data-animation-delay="0.2s">Utile</h4>
                     <ul class="footer_link list_none">
-                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.2s"><a href="/inscription">NOUS REJOINDRE</a></li>
-                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.3s"><a href="/login">Se connecter</a></li>
+                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.2s"><a href="{{route('inscription')}}">NOUS REJOINDRE</a></li>
+                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.3s"><a href="{{route('login')}}">Se connecter</a></li>
                         <li class="animation" data-animation="fadeInUp" data-animation-delay="0.6s"><a href="#whitepaper">Le guide</a></li>
                         <li class="animation" data-animation="fadeInUp" data-animation-delay="0.7s"><a target="_blank" href="https://t.me/max_cryptotraders">Support</a></li>
                         <li class="animation" data-animation="fadeInUp" data-animation-delay="0.9s"><a href="/mentions">Mentions légales</a></li>

@@ -6,7 +6,7 @@ Version      : 1.8
 
 (function($) {
 	'use strict';
-	
+
 	/*===================================*
 	01. LOADING JS
 	/*===================================*/
@@ -38,7 +38,7 @@ Version      : 1.8
           }
         }
     });
-	
+
 	/*===================================*
 	03. MENU JS
 	*===================================*/
@@ -53,8 +53,8 @@ Version      : 1.8
 	    }
 
 	});
-	
-	//Show Hide dropdown-menu Main navigation 
+
+	//Show Hide dropdown-menu Main navigation
 	$( document ).ready( function () {
 		$( '.dropdown-menu a.dropdown-toggler' ).on( 'click', function ( e ) {
 			var $el = $( this );
@@ -64,18 +64,18 @@ Version      : 1.8
 			}
 			var $subMenu = $( this ).next( ".dropdown-menu" );
 			$subMenu.toggleClass( 'show' );
-			
+
 			$( this ).parent( "li" ).toggleClass( 'show' );
-	
+
 			$( this ).parents( 'li.nav-item.dropdown.show' ).on( 'hidden.bs.dropdown', function ( e ) {
 				$( '.dropdown-menu .show' ).removeClass( "show" );
 			} );
-			
+
 			return false;
 		} );
 	} );
-	
-	
+
+
 	//Hide Navbar Dropdown After Click On Links
 	var navBar = $(".header_wrap");
 	var navbarLinks = navBar.find(".navbar-collapse ul li a.nav_item");
@@ -90,11 +90,11 @@ Version      : 1.8
         });
 
     });
-	
+
 	//Main navigation Active Class Add Remove
 	$('.navbar-toggler').on('click', function() {
 		$("header").toggleClass("active");
-	});	
+	});
 	$(document).on("ready", function () {
 	if ($(window).width() > 991) {
 		$("header").removeClass("active");
@@ -105,12 +105,12 @@ Version      : 1.8
 		}
 	})
 	})
-	
+
 	//Language Select Dropdown
 	$(document).ready(function() {
 	$("#lng_select,#doc_select").msDropdown();
 	})
-   
+
 	/*===================================*
 	04. BACKGROUND ANIMATION JS
 	*===================================*/
@@ -228,10 +228,10 @@ Version      : 1.8
 				},
 				"retina_detect": true
 			}
-	
+
 		);
 	}
-	
+
   	/*===================================*
 	05. ROAD MAP SLIDER JS
 	*===================================*/
@@ -260,7 +260,7 @@ Version      : 1.8
 	         }
 	     }
 	 });
-	 
+
 	 $('.roadmap_wrap').owlCarousel({
 	     loop: false,
 	     margin: 30,
@@ -309,7 +309,7 @@ Version      : 1.8
 	         }
 	     }
 	 });
-	 
+
 	/*===================================*
 	06. BLOG SLIDER S
 	*===================================*/
@@ -336,10 +336,10 @@ Version      : 1.8
 	         }
 	     }
 	 });
-	 
+
 	/*===================================*
 	07. TESTIMONIAL SLIDER JS
-	*===================================*/	 
+	*===================================*/
 	$('.testimonial_slider').owlCarousel({
 	     loop: false,
 	     margin: 30,
@@ -361,7 +361,7 @@ Version      : 1.8
 	         }
 	     }
 	 });
-	 
+
 	/*===================================*
      08.COUNTDOWN JS
     *===================================*/
@@ -371,7 +371,7 @@ Version      : 1.8
             $(this).html(tm.strftime('<span class="counter_box"><span id="days" class="tk_counter days">%D </span><span class="tk_text">Jours</span></span><span class="counter_box"><span id="hours" class="tk_counter hours">%H</span><span class="tk_text">Heures</span></span><span class="counter_box"><span id="mins" class="tk_counter minutes">%M</span><span class="tk_text">Minutes</span></span><span class="counter_box"><span id="secs" class="tk_counter seconds">%S</span><span class="tk_text">Secondes</span></span>'));
         });
     });
-	
+
 	/*===================================*
 	 09. VIDEO JS
 	*===================================*/
@@ -388,7 +388,7 @@ Version      : 1.8
 	    $.ajax({
 	        type: "POST",
 	        dataType: "json",
-	        url: "contact.php",
+	        url: "contact",
 	        data: mydata,
 	        success: function(data) {
 	            if (data.type === "error") {
@@ -411,7 +411,7 @@ Version      : 1.8
 	        }
 	    });
 	});
-	
+
 	/*===================================*
 	11. SCROLLUP JS
 	*===================================*/
@@ -422,7 +422,7 @@ Version      : 1.8
 			$('.scrollup').fadeOut();
 		}
 	});
-	
+
 	$(".scrollup").on('click', function (e) {
 		e.preventDefault();
 		$('html, body').animate({
@@ -430,7 +430,7 @@ Version      : 1.8
 		}, 600);
 		return false;
 	});
-	
+
 	/*===================================*
 	12. POPUP JS
 	*===================================*/
@@ -439,27 +439,27 @@ Version      : 1.8
 		preloader: true,
 		mainClass: 'mfp-zoom'
 	});
-	
+
 	/*===================================*
 	13. ANIMATION JS
 	*===================================*/
 	$(function() {
-	
+
 		function ckScrollInit(items, trigger) {
 			items.each(function() {
 				var ckElement = $(this),
 					AnimationClass = ckElement.attr('data-animation'),
 					AnimationDelay = ckElement.attr('data-animation-delay');
-	
+
 				ckElement.css({
 					'-webkit-animation-delay': AnimationDelay,
 					'-moz-animation-delay': AnimationDelay,
 					'animation-delay': AnimationDelay,
 					opacity: 0
 				});
-	
+
 				var ckTrigger = (trigger) ? trigger : ckElement;
-	
+
 				ckTrigger.waypoint(function() {
 					ckElement.addClass("animated").css("opacity", "1");
 					ckElement.addClass('animated').addClass(AnimationClass);
@@ -469,12 +469,12 @@ Version      : 1.8
 				});
 			});
 		}
-	
+
 		ckScrollInit($('.animation'));
 		ckScrollInit($('.staggered-animation'), $('.staggered-animation-wrap'));
-	
+
 	});
-	
+
 	/*===================================*
 	14. START COUNTUP JS
 	*===================================*/
@@ -489,26 +489,26 @@ Version      : 1.8
 	15. COLOR SWITCHHER JS
 	*===================================*/
 	$(".color-switch").on("click", "button", function() {
-	
+
 		$(this).addClass("active").siblings().removeClass("active");
 		$("#layoutstyle").attr("href", "assets/color/" + $(this).val() + ".css");
-	
+
 	});
-	
+
 	$(".icon").on("click", function() {
 		$(".color-switch").toggleClass("switch-active");
 		$(this).toggleClass("switch-active");
 	});
-	
+
 	$(function() {
 		$('#doc_select').change(function(){
 			$('.document_tab .tab-pane').removeClass('show active');
 			$('#' + $(this).val()).addClass('show active');
 		});
 	});
-	
+
 	google.maps.event.addDomListener(window, 'load', init);
-        
+
             function init() {
                 // Basic options for a simple Google Map
                 // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
@@ -519,11 +519,11 @@ Version      : 1.8
                     // The latitude and longitude to center the map (always required)
                     center: new google.maps.LatLng(40.7020, -73.9220), // New York
 
-                    // How you would like to style the map. 
+                    // How you would like to style the map.
                     // This is where you would paste any style found on Snazzy Maps.
                    styles:[{"featureType":"all","elementType":"geometry.fill","stylers":[{"weight":"2.00"}]},{"featureType":"all","elementType":"geometry.stroke","stylers":[{"color":"#9c9c9c"}]},{"featureType":"all","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#eeeeee"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#7b7b7b"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c8d7d4"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#070707"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]}]};
 
-                // Get the HTML DOM element that will contain your map 
+                // Get the HTML DOM element that will contain your map
                 // We are using a div with id="map" seen below in the <body>
                 var mapElement = document.getElementById('map');
 
@@ -537,8 +537,8 @@ Version      : 1.8
 					icon: "assets/images/marker.png",
                     title: 'Snazzy!'
                 });
-            }	
-			
-					
+            }
+
+
 })(jQuery);
 

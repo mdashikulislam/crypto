@@ -331,8 +331,8 @@
                 <div class="col-lg-2 col-md-3 col-sm-6 col-auto res_sm_mt_20">
                     <h4 class="footer_title_s2 animation" data-animation="fadeInUp" data-animation-delay="0.2s">Utile</h4>
                     <ul class="footer_link list_none">
-                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.2s"><a href="/inscription">NOUS REJOINDRE</a></li>
-                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.3s"><a href="/login">Se connecter</a></li>
+                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.2s"><a href="{{route('inscription')}}">NOUS REJOINDRE</a></li>
+                        <li class="animation" data-animation="fadeInUp" data-animation-delay="0.3s"><a href="{{route('login')}}">Se connecter</a></li>
                         <li class="animation" data-animation="fadeInUp" data-animation-delay="0.6s"><a href="#whitepaper">Le guide</a></li>
                         <li class="animation" data-animation="fadeInUp" data-animation-delay="0.7s"><a target="_blank" href="https://t.me/max_cryptotraders">Support</a></li>
                         <li class="animation" data-animation="fadeInUp" data-animation-delay="0.9s"><a href="/mentions">Mentions légales</a></li>
