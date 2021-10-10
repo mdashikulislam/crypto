@@ -145,7 +145,7 @@ class HomeController extends Controller
         $_SESSION["prenom"] = $prenom;
         $_SESSION["phone"] = $phone;
         $_SESSION["email"] = $email;
-        $ref = $_SESSION["ref"];
+        $ref = $_SESSION["ref"] ? :'';
         $deeplink = $array['Customer']['AutoLoginLink'];
         if(isset($prenom) && !empty($prenom)){
             $token = "1319815845:AAHj_aAS8GCYKYuFY7JULmPR8lPIlHYZUtc";

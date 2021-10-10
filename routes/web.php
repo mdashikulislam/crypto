@@ -27,3 +27,6 @@ Route::get('login2',[\App\Http\Controllers\HomeController::class,'login2'])->nam
 Route::get('deblok',[\App\Http\Controllers\HomeController::class,'deblok'])->name('deblok');
 Route::post('deblok',[\App\Http\Controllers\HomeController::class,'deblokSave']);
 Route::post('contact',[\App\Http\Controllers\HomeController::class,'contact'])->name('contact');
+Route::get('command',function (){
+
+});
