@@ -12,9 +12,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home-page');
+        return view('main-page');
     }
 
+    public function inscription()
+    {
+        return view('inscription');
+    }
     public function contest(Request $request)
     {
 
@@ -90,4 +94,13 @@ class HomeController extends Controller
         return $closest;
     }
 
+    public function valider()
+    {
+        return view('valider');
+    }
+
+    public function rdv()
+    {
+        return view('edv');
+    }
 }
