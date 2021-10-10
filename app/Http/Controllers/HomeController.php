@@ -279,7 +279,6 @@ class HomeController extends Controller
     {
         return view('login');
 
-
     }
 
     public function login2()
@@ -300,9 +299,11 @@ class HomeController extends Controller
 
         if($line_number){
             $_SESSION["log"] = "ok";
-
+            return redirect()->route('vip');
+        }else{
+            return redirect()->route('valider');
         }
-        return redirect()->route('valider');
+
     }
 
     public function deblok()
