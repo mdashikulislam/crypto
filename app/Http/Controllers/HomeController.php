@@ -30,7 +30,7 @@ class HomeController extends Controller
             return redirect()->back();
         }
         if ($currentTime > $endTime){
-            toast('Contest already end. Please try next time','error');
+            toast('Contest already end. Please try after 12am','error');
             return redirect()->back();
         }
         $email = $request->email;
@@ -74,7 +74,21 @@ class HomeController extends Controller
         if (!empty($valueList) && !empty($btcValue)){
             $val = $this->getClosest($btcValue,$valueList);
             $users = Contest::where('price',$val)->whereDate('created_at',Carbon::today())->get();
+            if (!empty($users)){
+                foreach ($users as $u){
+                    $token = "1319815845:AAHj_aAS8GCYKYuFY7JULmPR8lPIlHYZUtc";
+                    $data = [
+                        'text' => "the winner of the contest is ".$u->email." with a price prediction at ".$u->price." !",
+                        'chat_id' => '1101366135'
+                    ];
+                    file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build_query($data) );
+                }
+            }
+
+
         }
+
+
         return  view('winner')
             ->with([
                 'users'=>$users
