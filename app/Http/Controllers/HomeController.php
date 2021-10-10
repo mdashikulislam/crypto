@@ -35,11 +35,11 @@ class HomeController extends Controller
         $currentTime = strtotime($currentTime);
 
         if ($currentTime < $startTime ){
-            toast('Contest not start yet. Please try after 12am','error');
+            toast('Contest not start yet. Please try after 12am','error')->position('center-end');
             return redirect()->back();
         }
         if ($currentTime > $endTime){
-            toast('Contest already end. Please try next time','error');
+            toast('Contest already end. Please try try after 12am','error')->position('center-end');
             return redirect()->back();
         }
         $email = $request->email;
@@ -52,7 +52,7 @@ class HomeController extends Controller
                $s->whereDate('created_at',Carbon::today());
         })->first();
         if ($exist){
-            toast('You already participate on this contest','error');
+            toast('You already participate on this contest','error')->position('center-end');
             return redirect()->back();
         }
         $contest = new Contest();
@@ -64,7 +64,7 @@ class HomeController extends Controller
         $contest->agent = $request->userAgent();
         if ($contest->save()){
             Session::put('email',$contest->email);
-            toast('Thank you for participate on this contest','success');
+            toast('Thank you for participate on this contest','success')->position('center-end');
         }
         return redirect()->back();
     }
