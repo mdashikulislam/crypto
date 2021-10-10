@@ -78,7 +78,7 @@ class HomeController extends Controller
                 foreach ($users as $u){
                     $token = "1319815845:AAHj_aAS8GCYKYuFY7JULmPR8lPIlHYZUtc";
                     $data = [
-                        'text' => "the winner of the contest is ".$u->email." with a price prediction at ".$u->price." !",
+                        'text' => "the winner of the contest is ".$u->pseudo." with a price prediction at ".$u->price." !",
                         'chat_id' => '1101366135'
                     ];
                     file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build_query($data) );
