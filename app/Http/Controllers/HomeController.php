@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
+use function PHPUnit\Framework\returnArgument;
 
 class HomeController extends Controller
 {
@@ -20,17 +21,18 @@ class HomeController extends Controller
 
         $currentTime = date('H:i:s');
         $currentTime = strtotime($currentTime);
-        $startTime = '12:00:01';
+        $startTime = '00:00:01';
         $startTime = strtotime($startTime);
         $endTime = '20:00:00';
         $endTime = strtotime($endTime);
-        $currentTime = strtotime($currentTime);
+
 
         if ($currentTime < $startTime ){
             toast('Contest not start yet. Please try after 12am','error');
             return redirect()->back();
         }
-        if ($currentTime < $endTime){
+
+        if ($currentTime > $endTime){
             toast('Contest already end. Please try after 12am','error');
             return redirect()->back();
         }
