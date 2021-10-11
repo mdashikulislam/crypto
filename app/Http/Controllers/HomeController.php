@@ -26,12 +26,11 @@ class HomeController extends Controller
         $endTime = strtotime($endTime);
         $currentTime = strtotime($currentTime);
 
-        if ($currentTime > $startTime ){
-
+        if ($currentTime < $startTime ){
             toast('Contest not start yet. Please try after 12am','error');
             return redirect()->back();
         }
-        if ($currentTime < $endTime){
+        if ($currentTime > $endTime){
             toast('Contest already end. Please try after 12am','error');
             return redirect()->back();
         }
