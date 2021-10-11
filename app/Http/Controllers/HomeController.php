@@ -30,7 +30,7 @@ class HomeController extends Controller
             toast('Contest not start yet. Please try after 12am','error');
             return redirect()->back();
         }
-        if ($currentTime > $endTime){
+        if ($currentTime < $endTime){
             toast('Contest already end. Please try after 12am','error');
             return redirect()->back();
         }
