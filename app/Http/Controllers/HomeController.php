@@ -19,6 +19,7 @@ class HomeController extends Controller
     {
 
         $currentTime = date('H:i:s');
+        $currentTime = strtotime($currentTime);
         $startTime = '12:00:01';
         $startTime = strtotime($startTime);
         $endTime = '20:00:00';
