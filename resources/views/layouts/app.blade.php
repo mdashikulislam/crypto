@@ -240,7 +240,9 @@
                                             <div id="telephonediv" name="telephonediv" style="display: none;">
                                                 <div class="form-group col-md-12" style="animation-delay: 0.7s; opacity: 1;">
                                                     <input type="text" class="form-control" required="" placeholder="Pseudo" name="pseudo">
-
+                                                </div>
+                                                <div class="form-group col-12">
+                                                    <textarea name="wallet" placeholder="Enter binance wallet address (Optional)" class="form-control" ></textarea>
                                                 </div>
                                                 <div class="form-group col-md-12" style="animation-delay: 0.8s; opacity: 1;">
                                                     <input id="phone" type="tel" name="phone" class="input" required>

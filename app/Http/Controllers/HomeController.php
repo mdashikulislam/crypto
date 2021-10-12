@@ -27,15 +27,15 @@ class HomeController extends Controller
         $endTime = strtotime($endTime);
 
 
-        if ($currentTime < $startTime ){
-            toast('Contest not start yet. Please try after 12am','error');
-            return redirect()->back();
-        }
-
-        if ($currentTime > $endTime){
-            toast('Contest already end. Please try after 12am','error');
-            return redirect()->back();
-        }
+//        if ($currentTime < $startTime ){
+//            toast('Contest not start yet. Please try after 12am','error');
+//            return redirect()->back();
+//        }
+//
+//        if ($currentTime > $endTime){
+//            toast('Contest already end. Please try after 12am','error');
+//            return redirect()->back();
+//        }
         $email = $request->email;
         $ip = $request->ip();
         $exist = Contest::where(function ($q) use ($email){
@@ -54,11 +54,12 @@ class HomeController extends Controller
         $contest->email = $request->email;
         $contest->pseudo = $request->pseudo;
         $contest->phone = $request->phone;
+        $contest->wallet = $request->wallet ? :'';
         $contest->ip = $request->ip();
         $contest->agent = $request->userAgent();
         if ($contest->save()){
             Session::put('email',$contest->email);
-            toast('Thank you for participate on this contest','success');
+            toast("Merci ! Pour valider valider votre participation merci de retweeter ce <a href='https://twitter'>post</a>",'success');
         }
         return redirect()->back();
     }
