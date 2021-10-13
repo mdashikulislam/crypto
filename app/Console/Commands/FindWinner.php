@@ -54,13 +54,14 @@ class FindWinner extends Command
             $users = Contest::where('price',$val)->whereDate('created_at',Carbon::today())->get();
             if (!empty($users)){
                 foreach ($users as $u){
+                    Winner::create(['contest_id'=>$u->id]);
                     $token = "1319815845:AAHj_aAS8GCYKYuFY7JULmPR8lPIlHYZUtc";
                     $data = [
                         'text' => "the winner of the contest is ".$u->pseudo." with a price prediction at ".$u->price." !",
                         'chat_id' => '1101366135'
                     ];
                     file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build_query($data) );
-                    Winner::create(['contest_id'=>$u->id]);
+
                 }
             }
         }else{
