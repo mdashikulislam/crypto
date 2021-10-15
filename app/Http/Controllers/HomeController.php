@@ -85,4 +85,41 @@ class HomeController extends Controller
         return $closest;
     }
 
+    public function cornJob()
+    {
+        $url='https://blockchain.info/ticker';
+        $data = Http::get($url);
+        if(!empty($data)){
+            $btcValue = $data['USD']['sell'];
+        }else{
+            return false;
+        }
+        $valueList = Contest::whereDate('created_at',Carbon::today())->groupBy('price')->pluck('price')->toArray();
+        if (!empty($valueList) && !empty($btcValue)){
+            $val = $this->getClosest($btcValue,$valueList);
+            $users = Contest::where('price',$val)->whereDate('created_at',Carbon::today())->get();
+            if (!empty($users)){
+                foreach ($users as $u){
+                    Winner::create(['contest_id'=>$u->id]);
+                    $token = "1319815845:AAHj_aAS8GCYKYuFY7JULmPR8lPIlHYZUtc";
+                    $data = [
+                        'text' => "the winner of the contest is ".$u->pseudo." with a price prediction at ".$u->price." !",
+                        'chat_id' => '1101366135'
+                    ];
+                    file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build_query($data) );
+                    //Transfer withdraw automatically
+
+                    if (!empty($u->wallet)){
+                        $api = new \Binance\API(getenv('BINANCE_API_KEY'),getenv('BINANCE_SECRET_KEY'));
+                        $asset = "USD";
+                        $address = $u->wallet;
+                        $amount = 10;
+                        $response = $api->withdraw($asset, $address, $amount);
+                    }
+                }
+            }
+        }else{
+            return false;
+        }
+    }
 }
