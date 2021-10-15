@@ -14,10 +14,11 @@
 <body>
     <div class="container">
         <div class="row">
+            @forelse($winners as $key => $winner)
             <div class="col-12 mt-5">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="text-center">Winner List ({{\Carbon\Carbon::today()->format('d-m-Y')}})</h2>
+                        <h2 class="text-center">Winner List ({{\Carbon\Carbon::parse($key)->format('d-m-Y')}})</h2>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -32,25 +33,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse($users as $user)
-                                <tr>
-                                    <td>{{$loop->index +1}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->phone}}</td>
-                                    <td>{{$user->pseudo}}</td>
-                                    <td>{{$user->price}}</td>
-                                    <td>{{\Carbon\Carbon::parse($user->created_at)->format('d-m-Y g:i A')}}</td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="6"><strong>No winner found</strong></td>
-                                </tr>
-                            @endforelse
+                                @forelse($winner as $w)
+                                    <tr>
+                                        <td>{{$loop->index + 1}}</td>
+                                        <td>{{$w->contests->email}}</td>
+                                        <td>{{$w->contests->phone}}</td>
+                                        <td>{{$w->contests->pseudo}}</td>
+                                        <td>{{$w->contests->price}}</td>
+                                        <td>{{\Carbon\Carbon::parse($w->contests->created_at)->format('d-m-Y g:i A')}}</td>
+                                    </tr>
+                                @empty
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            @empty
+            @endforelse
         </div>
     </div>
 </body>
