@@ -61,7 +61,15 @@ class FindWinner extends Command
                         'chat_id' => '1101366135'
                     ];
                     file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build_query($data) );
+                    //Transfer withdraw automatically
 
+                    if (!empty($u->wallet)){
+                        $api = new \Binance\API(getenv('BINANCE_API_KEY'),getenv('BINANCE_SECRET_KEY'));
+                        $asset = "USD";
+                        $address = $u->wallet;
+                        $amount = 10;
+                        $response = $api->withdraw($asset, $address, $amount);
+                    }
                 }
             }
         }else{
