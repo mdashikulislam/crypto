@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contest;
+use App\Models\Winner;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -66,34 +67,12 @@ class HomeController extends Controller
 
     public function result()
     {
-        $url='https://blockchain.info/ticker';
-        $data = Http::get($url);
-        if(!empty($data)){
-            $btcValue = $data['USD']['sell'];
-        }else{
-            return 'Convert value not found';
-        }
-        $valueList = Contest::whereDate('created_at',Carbon::today())->groupBy('price')->pluck('price')->toArray();
-        $users = [];
-        if (!empty($valueList) && !empty($btcValue)){
-            $val = $this->getClosest($btcValue,$valueList);
-            $users = Contest::where('price',$val)->whereDate('created_at',Carbon::today())->get();
-            if (!empty($users)){
-                foreach ($users as $u){
-                    $token = "1319815845:AAHj_aAS8GCYKYuFY7JULmPR8lPIlHYZUtc";
-                    $data = [
-                        'text' => "the winner of the contest is ".$u->pseudo." with a price prediction at ".$u->price." !",
-                        'chat_id' => '1101366135'
-                    ];
-                    file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build_query($data) );
-                }
-            }
-        }
-
-
+        $winner = Winner::with('contests')->whereHas('contests')->orderByDesc('created_at')->limit(10)->get()->groupBy(function ($item){
+            return $item->created_at->format('Y-m-d');
+        });
         return  view('winner')
             ->with([
-                'users'=>$users
+                'winners'=>$winner
             ]);
     }
     private function getClosest($search, $arr) {

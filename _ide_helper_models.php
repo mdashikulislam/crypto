@@ -23,6 +23,7 @@ namespace App\Models{
  * @property string|null $agent
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $wallet
  * @method static \Illuminate\Database\Eloquent\Builder|Contest newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contest newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contest query()
@@ -35,6 +36,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Contest wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contest wherePseudo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contest whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contest whereWallet($value)
  */
 	class Contest extends \Eloquent {}
 }
@@ -69,5 +71,24 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  */
 	class User extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Winner
+ *
+ * @property int $id
+ * @property int $contest_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Winner newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Winner newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Winner query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Winner whereContestId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Winner whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Winner whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Winner whereUpdatedAt($value)
+ */
+	class Winner extends \Eloquent {}
 }
 
