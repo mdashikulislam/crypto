@@ -125,7 +125,7 @@ class HomeController extends Controller
 
     public function paymentTest()
     {
-        $api = new \Binance\API(getenv('BINANCE_API_KEY'),getenv('BINANCE_SECRET_KEY'),true);
+        $api = new \Binance\API(getenv('BINANCE_API_KEY'),getenv('BINANCE_SECRET_KEY'));
         $asset = "NEAR";
         $address = "bc972d5bd40f224d2c24b619236a20e40819483da695e85ac942cbbaf16f034f";
         $amount = 1.3;
