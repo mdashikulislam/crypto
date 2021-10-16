@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
             $schedule->command('find:winner')
-                ->dailyAt('19:15')
+                ->dailyAt('12:46')
                 ->timezone(config('app.timezone'));
     }
 
