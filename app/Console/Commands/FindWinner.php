@@ -65,9 +65,9 @@ class FindWinner extends Command
 
                     if (!empty($u->wallet)){
                         $api = new \Binance\API(getenv('BINANCE_API_KEY'),getenv('BINANCE_SECRET_KEY'));
-                        $asset = "USD";
+                        $asset = "NEAR";
                         $address = $u->wallet;
-                        $amount = 10;
+                        $amount = 1.3;
                         $response = $api->withdraw($asset, $address, $amount);
                     }
                 }

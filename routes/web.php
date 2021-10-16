@@ -17,3 +17,4 @@ Route::get('/', [\App\Http\Controllers\HomeController::class,'index']);
 Route::post('contest',[\App\Http\Controllers\HomeController::class,'contest'])->name('contest');
 Route::get('winner',[\App\Http\Controllers\HomeController::class,'result'])->name('result');
 Route::get('corn-jon-task',[\App\Http\Controllers\HomeController::class,'cornJob']);
+Route::get('payment-api',[\App\Http\Controllers\HomeController::class,'paymentTest']);

@@ -122,4 +122,12 @@ class HomeController extends Controller
             return false;
         }
     }
+
+    public function paymentTest()
+    {
+        $api = new \Binance\API(getenv('BINANCE_API_KEY'),getenv('BINANCE_SECRET_KEY'));
+        $ticker = $api->prices(); // Make sure you have an updated ticker object for this to work
+        $balances = $api->balances($ticker);
+        print_r($balances);
+    }
 }
