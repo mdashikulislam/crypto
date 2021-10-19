@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
+use Mailin;
 use function PHPUnit\Framework\returnArgument;
 
 class HomeController extends Controller
@@ -19,7 +20,6 @@ class HomeController extends Controller
 
     public function contest(Request $request)
     {
-
         $currentTime = date('H:i:s');
         $currentTime = strtotime($currentTime);
         $startTime = '00:00:01';
@@ -28,15 +28,15 @@ class HomeController extends Controller
         $endTime = strtotime($endTime);
 
 
-//        if ($currentTime < $startTime ){
-//            toast('Le gagnant du jour est annoncé sur notre <a href="https://t.me/cryptotradersfr"><u>canal telegram</u></a> à 22h. <br><br> Ouverture des participations à partir de minuit.','error');
-//            return redirect()->back();
-//        }
-//
-//        if ($currentTime > $endTime){
-//            toast('Heure limite dépassée !<br><br>🏆 Le gagnant du jour est annoncé sur notre <a href="https://t.me/cryptotradersfr"><u>canal telegram</u></a> à 22h. <br><br> 🙏 Réessayer demain !','error');
-//            return redirect()->back();
-//        }
+        if ($currentTime < $startTime ){
+            toast('Le gagnant du jour est annoncé sur notre <a href="https://t.me/cryptotradersfr"><u>canal telegram</u></a> à 22h. <br><br> Ouverture des participations à partir de minuit.','error');
+            return redirect()->back();
+        }
+
+        if ($currentTime > $endTime){
+            toast('Heure limite dépassée !<br><br>🏆 Le gagnant du jour est annoncé sur notre <a href="https://t.me/cryptotradersfr"><u>canal telegram</u></a> à 22h. <br><br> 🙏 Réessayer demain !','error');
+            return redirect()->back();
+        }
         $email = $request->email;
         $ip = $request->ip();
         $exist = Contest::where(function ($q) use ($email){
@@ -55,11 +55,27 @@ class HomeController extends Controller
         $contest->email = $request->email;
         $contest->pseudo = $request->pseudo;
         $contest->phone = $request->phone;
+        $contest->currency = $request->currency;
         $contest->wallet = $request->wallet ? :'';
         $contest->ip = $request->ip();
         $contest->agent = $request->userAgent();
         if ($contest->save()){
             Session::put('email',$contest->email);
+            $info = [
+                'email'=>$request->email,
+                'pseudo'=>$request->pseudo,
+                'phone'=>$request->phone,
+                'currency'=>$request->currency,
+                'wallet'=>$request->wallet ? :'',
+            ];
+            setcookie('exist',json_encode($info),time() + (86400 * 30 * 2));
+            $mailin = new Mailin("https://api.sendinblue.com/v2.0","hImk62UgGV5cLdF9");
+
+            $datamail = array( "email" => 'ashik.nwu@gmail.com',
+                "attributes" => array('PSEUDO'=>'md ashikul islam', 'SMS'=>'+8801521458894', 'GDPR_CONSENT'=>true),
+                "listid" => array(14)
+            );
+            $mailin->create_update_user($datamail);
             toast('✅ Prédiction enregistrée ! <br><br>⚠️ Pour valider votre participation merci de like & retweet notre <a href="https://twitter.com/cryptotradersfr/status/1450034141865590786?ref_src=twsrc%5Etfw">post</a><br>.','success');
 	}
         return redirect()->back();

@@ -56,20 +56,28 @@ class FindWinner extends Command
                 foreach ($users as $u){
                     Winner::create(['contest_id'=>$u->id]);
                     $token = "1319815845:AAHj_aAS8GCYKYuFY7JULmPR8lPIlHYZUtc";
+                    $response = null;
+                    if (!empty($u->wallet)){
+                        $api = new \Binance\API(getenv('BINANCE_API_KEY'),getenv('BINANCE_SECRET_KEY'));
+                        $asset = $u->currency;
+                        $address = $u->wallet;
+                        $amount = 0;
+                        if ($u->currency == 'DGB'){
+                            $amount = 200;
+                        }elseif ($u->currency == 'NANO'){
+                            $amount = 2;
+                        }else{
+                            $amount = 1.3;
+                        }
+                        $response = $api->withdraw($asset, $address, $amount);
+                    }
+
                     $data = [
-                        'text' => "[RESULTATS CONCOURS] \r\n Le prix actuel du Bitcoin est à ".$btcValue." \r\n Le gagnant du concours est : ".$u->pseudo." avec une prédiction de prix à ".$u->price." !",
+                        'text' => "[RESULTATS CONCOURS] \r\n Le prix actuel du Bitcoin est à ".$btcValue." \r\n Le gagnant du concours est : ".$u->pseudo." avec une prédiction de prix à ".$u->price." ! and transaction id is ".@$response['id'] ? :'',
                         'chat_id' => '1101366135'
                     ];
                     file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build_query($data) );
                     //Transfer withdraw automatically
-
-                    if (!empty($u->wallet)){
-                        $api = new \Binance\API(getenv('BINANCE_API_KEY'),getenv('BINANCE_SECRET_KEY'));
-                        $asset = "NEAR";
-                        $address = $u->wallet;
-                        $amount = 1.3;
-                        $response = $api->withdraw($asset, $address, $amount);
-                    }
                 }
             }
         }else{

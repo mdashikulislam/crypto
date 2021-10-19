@@ -5,6 +5,11 @@
     }else{
         $name = '';
     }
+
+    $exist = @$_COOKIE['exist'] ? :[];
+    if (!empty($exist)){
+       $exist = json_decode($exist);
+    }
 @endphp
 
 
@@ -213,7 +218,7 @@
 <section id="home_section" class="section_banner section_gradiant3">
     <div id="banner_bg_effect" class="banner_effect"></div>
     <div class="container">
-        
+
         <div class="divider small_divider d-none d-lg-block"></div>
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_50 pt-lg-0 order-lg-first">
@@ -235,17 +240,25 @@
                                                 <input type="number" min="0" max="200000" step="0.01" class="form-control" required="" placeholder="Votre prédiction de prix (en $)" name="btc" >
                                             </div>
                                             <div class="form-group col-md-12 animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.6s" style="animation-delay: 0.6s; opacity: 1;">
-                                                <input type="text" class="form-control" required="" placeholder="Email" name="email" id="email" onkeyup="showColorBox()">
+                                                <input value="{{@$exist->email ? :''}}" type="text" class="form-control" required="" placeholder="Email" name="email" id="email" onkeyup="showColorBox()">
                                             </div>
-                                            <div id="telephonediv" name="telephonediv" style="display: none;">
+                                            <div id="telephonediv" name="telephonediv" style="{{@$exist->email ? :'display: none;'}}  ">
                                                 <div class="form-group col-md-12" style="animation-delay: 0.7s; opacity: 1;">
-                                                    <input type="text" class="form-control" required="" placeholder="Pseudo" name="pseudo">
+                                                    <input value="{{@$exist->pseudo ? :''}}" type="text" class="form-control" required="" placeholder="Pseudo" name="pseudo">
                                                 </div>
                                                 <div class="form-group col-12">
-                                                    <textarea name="wallet" placeholder="Adresse de paiement NEAR (Optionelle)" class="form-control" ></textarea>
+                                                    <select style="padding: 6px 15px" id="currency" name="currency" class="form-control" required>
+                                                        <option selected disabled value="">Select Currency</option>
+                                                        <option {{@$exist->currency == 'NEAR' ? 'selected':''}} value="NEAR">NEAR</option>
+                                                        <option {{@$exist->currency =='NANO' ? 'selected' :''}} value="NANO">NANO</option>
+                                                        <option {{@$exist->currency =='DGB' ? 'selected' :''}} value="DGB">DIGIBYTE</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-12">
+                                                    <textarea name="wallet" placeholder="Adresse de paiement NEAR (Optionelle)" class="form-control" >{{@$exist->wallet ? :''}}</textarea>
                                                 </div>
                                                 <div class="form-group col-md-12" style="animation-delay: 0.8s; opacity: 1;">
-                                                    <input id="phone" type="tel" name="phone" class="input" value="+33" pattern=".{9,}" required>
+                                                    <input id="phone" type="tel" name="phone" class="input" value="{{@$exist->phone ? :''}}" pattern=".{9,}" required>
                                                 </div>
 
                                                 <div class="form-group col-md-12 animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.9s" style="animation-delay: 0.9s; opacity: 1;">
@@ -258,7 +271,7 @@
                                                 <input type="submit" class="btn btn-default btn-radius" id="submitbutton" value="VALIDER" name="submitbutton"><img width="40px">
                                             </div>
                                         </form>
-					
+
                                     </div>
                                 </div>
 <br><p style="color:white">🏆 Annonce du gagnant tous les soirs à 22h sur notre canal telegram, cliquer ci-dessous.</p><a href="https://t.me/cryptotradersfr" class="btn btn-default nav-link"><i class="fa fa-telegram fa-3x"></i>REJOINDRE LE TELEGRAM</a>
@@ -271,7 +284,7 @@
                 </div>
 
             </div>
-            
+
 </section>
 <!-- START SECTION WHY CHOOSE US -->
 <section id="why" class="bg_gray3">
@@ -294,8 +307,8 @@
                 <br><a href="#resultats" class="btn btn-default nav-link"><i class="fa fa-area-chart"></i>Nos résultats</a>
 <br><a href="#home_section" class="btn btn-default nav-link"><i class="fa fa-space-shuttle"></i>OBTENIR LES SIGNAUX</a></div>
 </div>
-            
-           
+
+
             <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-3 col-sm-12">
             	<div class="box_wrap radius_box bg-white text-center animation" data-animation="fadeInUp" data-animation-delay="0.4s">
                 	<img src="assets/images/wc_icon6.png" alt="wc_icon3"/>
@@ -310,7 +323,7 @@
 
                     <h4>Support & entraide 24/7</h4>
                     <p>Nous avons mis en place un support en ligne pour <b>répondre à toutes vos questions</b>. <br>De plus, nous avons un <b>groupe public d'échange sur Telegram réunissant plus de 14.000 francophones</b> de tout niveaux partageant quotidiennement <b>informations et bons plans</b> dans l'objectif d'apprendre les uns des autres.</p>
-<br><a href="#home_section" class="btn btn-default nav-link"><i class="fa fa-check-square-o"></i>S'INSCRIRE</a>                
+<br><a href="#home_section" class="btn btn-default nav-link"><i class="fa fa-check-square-o"></i>S'INSCRIRE</a>
 </div>
             </div></div>
     	</div>
@@ -321,7 +334,7 @@
 <br><br><center><a href="#team" class="btn btn-default btn-radius">NOTRE EQUIPE<i class="ion-ios-arrow-thin-right"></i></a></center><br></div>
   	</div>
 </section>
-<!-- END SECTION WHY CHOOSE US --> 
+<!-- END SECTION WHY CHOOSE US -->
 
 
 <!-- START CLIENTS SECTION -->
